@@ -7,7 +7,7 @@ function AllProducts() {
     async function fetchData () {
       const res = await fetch(`http://localhost:8000/data`);
       const data =  await res.json()
-      console.log(data);
+     // console.log(data);
       setItem(data)
     }
     fetchData()

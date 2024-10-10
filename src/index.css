@@ -52,7 +52,7 @@ img {
   color: brown;
   font-weight: 700;
 }
-.add-to-cart {
+.add-to-cart, .increaseDecrease {
   position: relative;
   left: 2rem;
   bottom: 1.5rem;
@@ -77,14 +77,15 @@ img {
   font-size: 15px;
 }
 .increaseDecrease {
-  background-color: brown;
+  background-color: hsl(14, 86%, 42%);
   color: #e8e4e4;
   justify-content: space-around;
   overflow: hidden;
   cursor: default;
 }
 .increaseDecrease button {
-  background-color: brown;
+  bottom: 1.5rem;
+  background-color: hsl(14, 86%, 42%);
   font-size: 19px;
   border: none;
   cursor: pointer; 
