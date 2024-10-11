@@ -8,7 +8,7 @@ import { addItem, getCurrentQuantityById } from '../slices/productSlice'
 function Products({product}) {
   const {id , category, name , price } = product
   const dispatch = useDispatch()
-   const productQuantity  = useSelector(getCurrentQuantityById (id));
+   const productQuantity  = useSelector(getCurrentQuantityById(id));
   // const isInCart = productQuantity.value > 0
  // console.log(isInCart)
 // console.log(productQuantity)

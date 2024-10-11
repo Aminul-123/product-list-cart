@@ -33,7 +33,11 @@ const productSlice = createSlice({
     }
 })
 
- export const {addItem, increaseItemQuantity, decreaseItemQuantity} = productSlice.actions;
+ export const {addItem, increaseItemQuantity, decreaseItemQuantity, deleteItem} = productSlice.actions;
 export default productSlice.reducer;
 
 export const getCurrentQuantityById = (id) => (state) => state.product.cart.find((item) => item.productId === id)?.quantity ?? 0;
+
+export const getTotalPrice = (state) => state.product.cart.reduce((sum, item ) => sum + item.totalPrice, 0);
+
+export const getTotalQuantity = (state) => state.product.cart.reduce((sum, item) => sum + item.quantity, 0)

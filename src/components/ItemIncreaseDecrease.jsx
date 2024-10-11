@@ -12,7 +12,7 @@ function ItemIncreaseDecrease({ id }) {
     (state) =>
       state.product.cart.find((item) => item.productId === id)?.quantity
   );
-  console.log(quantity);
+ // console.log(quantity);
   return (
     <div className="increaseDecrease">
       <button onClick={() => dispatch(decreaseItemQuantity(id))}>-</button>
