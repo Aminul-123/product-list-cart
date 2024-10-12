@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     cart : [],
+    isOrderConfirm : false
 }
 const productSlice = createSlice({
     name : 'product',
@@ -28,12 +29,19 @@ const productSlice = createSlice({
         deleteItem (state, action) {
             // again payload will be id;
             state.cart = state.cart.filter((item) => item.productId !== action.payload)
+        },
+        orderConfirmed (state, action) {
+            state.isOrderConfirm = true
+        },
+        newOrder (state) {
+            state.isOrderConfirm = false;
         }
+
        
     }
 })
 
- export const {addItem, increaseItemQuantity, decreaseItemQuantity, deleteItem} = productSlice.actions;
+ export const {addItem, increaseItemQuantity, decreaseItemQuantity, deleteItem, orderConfirmed, newOrder} = productSlice.actions;
 export default productSlice.reducer;
 
 export const getCurrentQuantityById = (id) => (state) => state.product.cart.find((item) => item.productId === id)?.quantity ?? 0;

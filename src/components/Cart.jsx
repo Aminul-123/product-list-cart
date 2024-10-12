@@ -1,18 +1,24 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CartItem from './CartItem';
 import TotalAmount from './TotalAmount';
-import { getTotalQuantity } from '../slices/productSlice';
+import { getTotalQuantity, orderConfirmed } from '../slices/productSlice';
+import EmptyCart from './EmptyCart';
 
 function Cart() {
   const cart = useSelector((state) => state.product.cart);
+  const dispatch = useDispatch()
   const totalQuantity = useSelector(getTotalQuantity);
   //console.log(totalQuantity)
  // console.log(cart)
   return (
     <div className="cart-container">
       <h2 className='cart-header'> Your cart ({totalQuantity}) </h2>
-      <div className="cartItem">
+      { 
+      totalQuantity === 0 ? <EmptyCart /> : 
+        <>
+        
+        <div className="cartItem">
         {
           cart.map((item) => (
             <CartItem item={item} key={item.productId} />
@@ -26,8 +32,10 @@ function Cart() {
         </div>
 
         <div className="confirm-order-btn">
-          <button>Confirm Order</button>
+          <button onClick={() => dispatch(orderConfirmed()) }>Confirm Order</button>
         </div>
+        </>
+        }
     </div>
   )
 }

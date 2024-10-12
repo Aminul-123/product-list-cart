@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AddToCart from './AddToCart'
 import ItemIncreaseDecrease from './ItemIncreaseDecrease'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,12 +6,20 @@ import { addItem, getCurrentQuantityById } from '../slices/productSlice'
 
 // single products
 function Products({product}) {
+  const [mainWidth , setMainWidth] = useState(1024)
   const {id , category, name , price } = product
   const dispatch = useDispatch()
    const productQuantity  = useSelector(getCurrentQuantityById(id));
   // const isInCart = productQuantity.value > 0
  // console.log(isInCart)
 // console.log(productQuantity)
+
+useEffect(function () {
+  const windowsWidth = window.innerWidth
+  setMainWidth(windowsWidth);
+  
+}, [window.innerWidth])
+
 
   
   function handleAddToCart () {
@@ -25,14 +33,18 @@ function Products({product}) {
       quantity: 1,
       totalPrice : price
     }
-    console.log(newItem);
+  //  console.log(newItem);
    dispatch(addItem(newItem))
   }
 
   return (
     <div className='products'>
         <div className="img-cont">
-          <img src={product?.image?.desktop} alt={name} />
+          {
+            mainWidth < 500 ? <img src={product?.image?.mobile} alt={name} /> :
+            <img src={product?.image?.desktop} alt={name} />
+
+          }
         </div>
         {
           productQuantity ? (

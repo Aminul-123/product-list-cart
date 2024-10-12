@@ -4,6 +4,10 @@
 :root {
   --red-color : hsl(14, 86%, 42%);
 }
+body {
+  background-color: rgb(245, 242, 242);
+
+}
 .container {
   margin: 2rem;
 }
@@ -13,7 +17,6 @@
 }
 .main-item {
   display: flex;
-
 }
 .all-products {
   width: 65vw;
@@ -78,6 +81,11 @@ img {
 }
 .add-to-cart button p {
   font-size: 15px;
+}
+.add-to-cart button:hover {
+  color: var(--red-color);
+  border: 1px solid var(--red-color);
+  transition: all 1000ms;
 }
 .increaseDecrease {
   background-color: var(--red-color);
@@ -178,4 +186,62 @@ img {
   border: none;
   outline: none;
   cursor: pointer;
+}
+.empty-cart img {
+  height: 8rem;
+  width: 8rem;
+  margin-left: 2rem;
+}
+.empty-cart p {
+  color: rgb(74, 69, 69);
+  text-align: center;
+}
+.order-detail {
+  position: absolute;
+  transform: translateX(30rem);
+  z-index: 100;
+}
+.order-confirmed {
+  /* position: absolute; */
+  height: auto;
+  width: auto;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 12px;
+}
+.confirm-header img {
+  height: 3rem;
+  width: 3rem;
+}
+.order-confirmed h1 {
+  margin: -8px 0 -15px 0;
+}
+.confirm-header p {
+  color: rgb(94, 89, 89);
+}
+.new-order-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 19px;
+  color: white;
+  font-size: 16px;
+  background-color: var(--red-color);
+  cursor: pointer;
+}
+@media screen and (max-width: 500px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .main-item {
+    flex-direction: column;
+    margin: -10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .qty-price {
+    gap: 10px;
+  }
 }
