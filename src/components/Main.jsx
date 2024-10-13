@@ -6,7 +6,7 @@ import OrderConfirmed from './OrderConfirmed'
 
 function Main() {
   const isOrderConfirmed = useSelector((state) => state?.product?.isOrderConfirm)
-  console.log(isOrderConfirmed) // undefined
+ // console.log(isOrderConfirmed) //  false or true
   return (
     <>
     <div className="main-item">

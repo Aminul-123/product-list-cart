@@ -244,4 +244,10 @@ img {
   .qty-price {
     gap: 10px;
   }
+  .order-detail {
+    position: absolute;
+    /* transform: translate(-10%, -100%); */
+    bottom: 0;
+    left: -400px;
+  }
 }

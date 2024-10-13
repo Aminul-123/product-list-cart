@@ -35,6 +35,7 @@ const productSlice = createSlice({
         },
         newOrder (state) {
             state.isOrderConfirm = false;
+            state.cart = []
         }
 
        
